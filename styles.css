@@ -1,0 +1,960 @@
+/* Variables generales de color y escala visual del museo. */
+:root {
+  --paper: #f6efe2;
+  --paper-soft: #fbf7ef;
+  --white: #ffffff;
+  --ink: #1f1b17;
+  --muted: #665b4d;
+  --blue: #112f4d;
+  --blue-soft: #1b4f7a;
+  --brown: #6c4328;
+  --brown-dark: #422615;
+  --brass: #b58a45;
+  --green: #536a5c;
+  --line: rgba(66, 38, 21, 0.18);
+  --shadow: 0 18px 45px rgba(32, 22, 14, 0.16);
+  --hero-image: url("https://commons.wikimedia.org/wiki/Special:FilePath/Ignacio%20Baz%20-%20Domingo%20F.%20Sarmiento%20-%20Google%20Art%20Project.jpg?width=1400");
+}
+
+/* Reset basico para que el sitio funcione igual en navegadores modernos. */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    linear-gradient(90deg, rgba(108, 67, 40, 0.05) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(17, 47, 77, 0.05) 1px, transparent 1px),
+    var(--paper);
+  background-size: 44px 44px, 44px 44px, auto;
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.65;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+/* Accesibilidad para navegacion por teclado. */
+:focus-visible {
+  outline: 3px solid var(--brass);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 1000;
+  transform: translateY(-140%);
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  background: var(--white);
+  color: var(--blue);
+  font-weight: 700;
+  box-shadow: var(--shadow);
+  transition: transform 180ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.scroll-progress {
+  position: fixed;
+  inset: 0 auto auto 0;
+  z-index: 999;
+  width: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--brass), #e5c175);
+}
+
+/* Encabezado fijo con navegacion superior. */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 72px;
+  padding: 0.75rem 5vw;
+  color: var(--white);
+  background: rgba(17, 47, 77, 0.96);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(12px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  min-width: 0;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  border-radius: 50%;
+  color: var(--brass);
+  font-family: Georgia, serif;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.brand-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.primary-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.nav-link {
+  position: relative;
+  padding: 0.45rem 0.65rem;
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.92rem;
+  font-weight: 650;
+  text-decoration: none;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.nav-link:hover,
+.nav-link.is-active {
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  gap: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 20px;
+  height: 2px;
+  background: currentColor;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+body.nav-open .menu-toggle span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+body.nav-open .menu-toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+body.nav-open .menu-toggle span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Layout general de secciones, pensado como salas de museo. */
+.museum-section {
+  scroll-margin-top: 88px;
+  padding: 5.5rem 5vw;
+}
+
+.section-heading {
+  max-width: 760px;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 0.7rem;
+  color: var(--brass);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.12;
+  letter-spacing: 0;
+}
+
+h1 {
+  max-width: 860px;
+  font-size: 3.75rem;
+}
+
+h2 {
+  color: var(--blue);
+  font-size: 2.35rem;
+}
+
+h3 {
+  color: var(--brown-dark);
+  font-size: 1.2rem;
+}
+
+p {
+  margin: 0;
+}
+
+p + p {
+  margin-top: 1rem;
+}
+
+/* Portada con imagen historica de dominio publico. */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 82vh;
+  overflow: hidden;
+  color: var(--white);
+  background:
+    linear-gradient(90deg, rgba(17, 47, 77, 0.98) 0%, rgba(17, 47, 77, 0.86) 48%, rgba(17, 47, 77, 0.18) 100%),
+    var(--hero-image);
+  background-position: center right;
+  background-size: cover;
+  isolation: isolate;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(0deg, rgba(18, 13, 9, 0.32), transparent 35%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 120px);
+}
+
+.hero-content {
+  max-width: 760px;
+}
+
+.hero h1 {
+  color: var(--white);
+  text-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+}
+
+.hero-lead {
+  max-width: 700px;
+  margin-top: 1.25rem;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1.15rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 2rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.7rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button-primary {
+  color: var(--blue);
+  background: var(--brass);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.button-primary:hover {
+  background: #d2a75f;
+}
+
+.button-secondary {
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.32);
+}
+
+.button-secondary:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.hero-route {
+  position: absolute;
+  right: 5vw;
+  bottom: 5rem;
+  display: flex;
+  gap: 0.55rem;
+}
+
+.hero-route a {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 50%;
+  color: var(--white);
+  font-weight: 800;
+  text-decoration: none;
+  background: rgba(17, 47, 77, 0.5);
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.hero-route a:hover {
+  transform: translateY(-2px);
+  background: rgba(181, 138, 69, 0.9);
+}
+
+.hero-source {
+  position: absolute;
+  right: 5vw;
+  bottom: 1.25rem;
+  max-width: 520px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.78rem;
+  text-align: right;
+}
+
+.hero-source a {
+  color: var(--white);
+}
+
+/* Tarjetas introductorias del mapa de salas. */
+.intro {
+  background: linear-gradient(180deg, var(--paper-soft), var(--paper));
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.overview-card,
+.mini-card,
+.question-card,
+.source-note,
+.timeline-item {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.74);
+  box-shadow: 0 12px 30px rgba(47, 28, 15, 0.08);
+}
+
+.overview-card {
+  min-height: 190px;
+  padding: 1.25rem;
+}
+
+.overview-card span {
+  display: inline-block;
+  margin-bottom: 1.2rem;
+  color: var(--brass);
+  font-family: Georgia, serif;
+  font-size: 1.55rem;
+  font-weight: 800;
+}
+
+.overview-card p {
+  margin-top: 0.65rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Salas del museo con panel explicativo y vitrina de objeto. */
+.room {
+  border-top: 1px solid rgba(66, 38, 21, 0.14);
+  background:
+    linear-gradient(90deg, rgba(17, 47, 77, 0.04), transparent 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.4), transparent);
+}
+
+.room-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.75fr);
+  gap: 2rem;
+  align-items: stretch;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.room-grid-reverse {
+  grid-template-columns: minmax(280px, 0.75fr) minmax(0, 1.4fr);
+}
+
+.room-grid-reverse .room-panel {
+  order: 2;
+}
+
+.room-grid-reverse .object-card {
+  order: 1;
+}
+
+.room-panel {
+  padding: 2.3rem;
+  border-left: 6px solid var(--brass);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: var(--shadow);
+}
+
+.room-panel p {
+  max-width: 850px;
+  color: #362b21;
+  font-size: 1.04rem;
+}
+
+.room-panel h2 + p {
+  margin-top: 1.1rem;
+}
+
+.question-card {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #fffaf1;
+}
+
+.question-card p {
+  margin-top: 0.45rem;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.object-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 440px;
+  padding: 2rem;
+  border: 1px solid rgba(181, 138, 69, 0.42);
+  border-radius: 8px;
+  color: var(--white);
+  background:
+    linear-gradient(180deg, rgba(17, 47, 77, 0.96), rgba(66, 38, 21, 0.92)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px 70px);
+  box-shadow: var(--shadow);
+}
+
+.object-label {
+  margin-bottom: 1rem;
+  color: #e6c98f;
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.object-icon {
+  display: grid;
+  place-items: center;
+  width: 140px;
+  height: 140px;
+  margin: 0 0 1.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.object-icon svg {
+  width: 88px;
+  height: 88px;
+  fill: none;
+  stroke: #e9d2a0;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.object-card h3 {
+  color: var(--white);
+  font-size: 1.45rem;
+}
+
+.object-card p:not(.object-label) {
+  margin-top: 0.8rem;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.room-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.85rem;
+  max-width: 1180px;
+  margin: 2rem auto 0;
+}
+
+.room-actions .button-secondary {
+  color: var(--blue);
+  background: rgba(17, 47, 77, 0.06);
+  border-color: rgba(17, 47, 77, 0.22);
+}
+
+.room-actions .button-secondary:hover {
+  background: rgba(17, 47, 77, 0.12);
+}
+
+.conflict-grid,
+.subjects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+}
+
+.subjects-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.mini-card {
+  padding: 1rem;
+}
+
+.mini-card p,
+.mini-card li {
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.mini-card h3 + p,
+.mini-card h3 + ul {
+  margin-top: 0.6rem;
+}
+
+.mini-card ul,
+.legacy-list {
+  padding-left: 1.1rem;
+}
+
+.mini-card li + li,
+.legacy-list li + li {
+  margin-top: 0.45rem;
+}
+
+.mini-card-dark {
+  color: var(--white);
+  background: var(--blue);
+}
+
+.mini-card-dark h3,
+.mini-card-dark li {
+  color: var(--white);
+}
+
+.mini-card-light {
+  background: #fffaf1;
+}
+
+.legacy-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem 1rem;
+  margin: 1.4rem 0 0;
+  padding: 1.1rem 1.1rem 1.1rem 2rem;
+  border-radius: 8px;
+  background: #fffaf1;
+  color: #362b21;
+}
+
+/* Linea de tiempo historica. */
+.timeline-section {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.timeline-section h2,
+.timeline-section .section-heading p {
+  color: var(--white);
+}
+
+.timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 1.55rem;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.timeline-item {
+  position: relative;
+  padding: 3.3rem 1rem 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: none;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  top: 1.12rem;
+  width: 16px;
+  height: 16px;
+  border: 3px solid var(--brass);
+  border-radius: 50%;
+  background: var(--blue);
+}
+
+.timeline-item span {
+  color: #e9d2a0;
+  font-family: Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.timeline-item h3 {
+  margin-top: 0.45rem;
+  color: var(--white);
+}
+
+.timeline-item p {
+  margin-top: 0.55rem;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.94rem;
+}
+
+/* Cierre conceptual del recorrido. */
+.conclusion {
+  display: grid;
+  place-items: center;
+  min-height: 70vh;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(246, 239, 226, 0.96)),
+    linear-gradient(90deg, rgba(181, 138, 69, 0.16), transparent 55%);
+}
+
+.conclusion-content {
+  max-width: 880px;
+  padding: 2.6rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  text-align: center;
+  background: var(--paper-soft);
+  box-shadow: var(--shadow);
+}
+
+.conclusion-content p:not(.eyebrow) {
+  margin: 1.1rem auto 0;
+  max-width: 760px;
+  color: #362b21;
+  font-size: 1.08rem;
+}
+
+.conclusion-content .button {
+  margin-top: 1.8rem;
+}
+
+/* Creditos de imagenes de dominio publico. */
+.sources {
+  background: #efe3d1;
+}
+
+.source-grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: stretch;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.source-card {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.source-card img {
+  width: 100%;
+  max-height: 520px;
+  object-fit: contain;
+  background: #f1eadf;
+}
+
+.source-card figcaption {
+  padding: 1rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.source-card a {
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.source-note {
+  padding: 1.5rem;
+  align-self: center;
+}
+
+.source-note p {
+  margin-top: 0.75rem;
+  color: var(--muted);
+}
+
+/* Pie de pagina. */
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1.5rem 5vw;
+  color: var(--white);
+  background: var(--brown-dark);
+}
+
+.site-footer p {
+  font-size: 0.95rem;
+}
+
+/* Animaciones de aparicion controladas por JavaScript. */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ajustes responsive para tablets. */
+@media (max-width: 1040px) {
+  .overview-grid,
+  .timeline {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .timeline::before {
+    display: none;
+  }
+
+  .room-grid,
+  .room-grid-reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .room-grid-reverse .room-panel,
+  .room-grid-reverse .object-card {
+    order: initial;
+  }
+
+  .object-card {
+    min-height: auto;
+  }
+
+  .conflict-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Ajustes responsive para celulares. */
+@media (max-width: 760px) {
+  .site-header {
+    min-height: 66px;
+    padding-inline: 1rem;
+  }
+
+  .brand-title {
+    max-width: 62vw;
+    font-size: 0.95rem;
+  }
+
+  .menu-toggle {
+    display: grid;
+  }
+
+  .primary-nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    display: grid;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    background: rgba(17, 47, 77, 0.98);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    transition: max-height 220ms ease;
+  }
+
+  body.nav-open .primary-nav {
+    max-height: 440px;
+  }
+
+  .nav-link {
+    padding: 0.85rem 1rem;
+    border-radius: 0;
+  }
+
+  .museum-section {
+    padding: 4rem 1rem;
+    scroll-margin-top: 78px;
+  }
+
+  .hero {
+    min-height: 84vh;
+    background:
+      linear-gradient(180deg, rgba(17, 47, 77, 0.98) 0%, rgba(17, 47, 77, 0.88) 52%, rgba(17, 47, 77, 0.62) 100%),
+      var(--hero-image);
+    background-position: center bottom;
+  }
+
+  h1 {
+    font-size: 2.45rem;
+  }
+
+  h2 {
+    font-size: 1.85rem;
+  }
+
+  .hero-lead {
+    font-size: 1rem;
+  }
+
+  .hero-route {
+    position: static;
+    margin-top: 2rem;
+  }
+
+  .hero-source {
+    left: 1rem;
+    right: 1rem;
+    text-align: left;
+  }
+
+  .overview-grid,
+  .timeline,
+  .subjects-grid,
+  .legacy-list,
+  .source-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .room-panel,
+  .conclusion-content {
+    padding: 1.35rem;
+  }
+
+  .object-card {
+    padding: 1.35rem;
+  }
+
+  .object-icon {
+    width: 118px;
+    height: 118px;
+  }
+
+  .room-actions {
+    flex-direction: column;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+  }
+
+  .brand-title {
+    max-width: 56vw;
+  }
+
+  h1 {
+    font-size: 2.1rem;
+  }
+
+  .hero-actions {
+    gap: 0.6rem;
+  }
+}
+
+/* Respeta usuarios que prefieren menos movimiento. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
