@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const revealElements = document.querySelectorAll(".reveal");
   const sections = document.querySelectorAll("main section[id]");
 
-  // Control del menu responsive.
+  // Control del menú responsive.
   if (menuToggle) {
     menuToggle.addEventListener("click", () => {
       const isOpen = !body.classList.contains("nav-open");
@@ -17,17 +17,17 @@ document.addEventListener("DOMContentLoaded", () => {
       menuToggle.setAttribute("aria-expanded", String(isOpen));
       menuToggle.setAttribute(
         "aria-label",
-        isOpen ? "Cerrar menu de navegacion" : "Abrir menu de navegacion"
+        isOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"
       );
     });
   }
 
-  // Cierra el menu movil al navegar hacia una sala.
+  // Cierra el menú móvil al navegar hacia una sala.
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
       body.classList.remove("nav-open");
       menuToggle?.setAttribute("aria-expanded", "false");
-      menuToggle?.setAttribute("aria-label", "Abrir menu de navegacion");
+      menuToggle?.setAttribute("aria-label", "Abrir menú de navegación");
     });
   });
 
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
     revealElements.forEach((element) => element.classList.add("is-visible"));
   }
 
-  // Marca en el menu la seccion visible del recorrido.
+  // Marca en el menú la sección visible del recorrido.
   if ("IntersectionObserver" in window) {
     const activeObserver = new IntersectionObserver(
       (entries) => {
@@ -124,11 +124,12 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   });
 
-  // Escape cierra el menu si esta abierto.
+  // Escape cierra el menú si está abierto.
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && body.classList.contains("nav-open")) {
       body.classList.remove("nav-open");
       menuToggle?.setAttribute("aria-expanded", "false");
+      menuToggle?.setAttribute("aria-label", "Abrir menú de navegación");
       menuToggle?.focus();
     }
   });
