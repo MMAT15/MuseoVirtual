@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Museo virtual interactivo sobre el normalismo argentino para Historia de la Educacion."
+    />
+    <title>Museo Virtual del Normalismo Argentino</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <!-- Encabezado principal con titulo y navegacion superior. -->
+    <header class="site-header" data-header>
+      <a class="brand" href="#inicio" aria-label="Ir al inicio del museo">
+        <span class="brand-mark" aria-hidden="true">MN</span>
+        <span class="brand-title">Museo Virtual del Normalismo Argentino</span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Abrir menu de navegacion"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+        data-menu-toggle
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="primary-nav" id="primary-navigation" aria-label="Navegacion principal">
+        <a class="nav-link" href="#inicio">Inicio</a>
+        <a class="nav-link" href="#sala-1">Sala 1</a>
+        <a class="nav-link" href="#sala-2">Sala 2</a>
+        <a class="nav-link" href="#sala-3">Sala 3</a>
+        <a class="nav-link" href="#sala-4">Sala 4</a>
+        <a class="nav-link" href="#sala-5">Sala 5</a>
+        <a class="nav-link" href="#conclusion">Conclusion</a>
+      </nav>
+    </header>
+
+    <main id="contenido">
+      <!-- Inicio del recorrido: bienvenida, explicacion e imagen principal. -->
+      <section class="hero museum-section" id="inicio" aria-labelledby="hero-title">
+        <div class="hero-content reveal">
+          <p class="eyebrow">Trabajo universitario - Historia de la Educacion</p>
+          <h1 id="hero-title">Museo Virtual del Normalismo Argentino</h1>
+          <p class="hero-lead">
+            Un recorrido interactivo por las ideas, tensiones, sujetos y legados del
+            normalismo en la construccion del sistema educativo argentino.
+          </p>
+          <div class="hero-actions" aria-label="Acciones del recorrido">
+            <a class="button button-primary" href="#sala-1">Comenzar recorrido</a>
+            <a class="button button-secondary" href="#linea-tiempo">Ver linea de tiempo</a>
+          </div>
+        </div>
+
+        <div class="hero-route" aria-label="Salas del museo">
+          <a href="#sala-1">1</a>
+          <a href="#sala-2">2</a>
+          <a href="#sala-3">3</a>
+          <a href="#sala-4">4</a>
+          <a href="#sala-5">5</a>
+        </div>
+
+        <p class="hero-source">
+          Imagen: Domingo F. Sarmiento, Ignacio Baz, dominio publico -
+          <a
+            href="https://commons.wikimedia.org/wiki/File:Ignacio_Baz_-_Domingo_F._Sarmiento_-_Google_Art_Project.jpg"
+            target="_blank"
+            rel="noreferrer"
+            >Wikimedia Commons</a
+          >.
+        </p>
+      </section>
+
+      <!-- Presentacion del recorrido como mapa de salas. -->
+      <section class="intro museum-section reveal" aria-labelledby="recorrido-title">
+        <div class="section-heading">
+          <p class="eyebrow">Recorrido sugerido</p>
+          <h2 id="recorrido-title">Cinco salas para leer el normalismo como proyecto historico</h2>
+          <p>
+            Cada sala funciona como una vitrina tematica: presenta un problema, un
+            objeto destacado y una pregunta para interpretar el periodo.
+          </p>
+        </div>
+
+        <div class="overview-grid" aria-label="Resumen de salas">
+          <article class="overview-card">
+            <span>01</span>
+            <h3>Problemas</h3>
+            <p>Analfabetismo, identidad nacional y profesionalizacion docente.</p>
+          </article>
+          <article class="overview-card">
+            <span>02</span>
+            <h3>Modelo docente</h3>
+            <p>El maestro como agente estatal y ejemplo moral.</p>
+          </article>
+          <article class="overview-card">
+            <span>03</span>
+            <h3>Conflictos</h3>
+            <p>Control, obediencia, democracia y malestar docente.</p>
+          </article>
+          <article class="overview-card">
+            <span>04</span>
+            <h3>Sujetos</h3>
+            <p>Inclusiones, margenes y homogeneizacion cultural.</p>
+          </article>
+          <article class="overview-card">
+            <span>05</span>
+            <h3>Legado</h3>
+            <p>Practicas escolares que siguen presentes en la actualidad.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Sala 1: problemas historicos que busco resolver el normalismo. -->
+      <section class="room museum-section reveal" id="sala-1" aria-labelledby="sala-1-title">
+        <div class="room-grid">
+          <article class="room-panel">
+            <p class="eyebrow">Sala 1</p>
+            <h2 id="sala-1-title">Los problemas que busco resolver el normalismo</h2>
+            <p>
+              El normalismo surgio para erradicar el analfabetismo, consolidar la
+              identidad nacional y profesionalizar la docencia. El Estado argentino
+              impulso escuelas normales para formar maestros encargados de modernizar
+              el pais y transmitir los valores de Patria y Nacion.
+            </p>
+            <div class="question-card">
+              <h3>Pregunta de sala</h3>
+              <p>
+                ?Como se vinculo la expansion escolar con la construccion de una
+                ciudadania nacional?
+              </p>
+            </div>
+          </article>
+
+          <aside class="object-card" aria-label="Objeto destacado: Escuela Normal">
+            <p class="object-label">Objeto destacado</p>
+            <div class="object-icon" aria-hidden="true">
+              <svg viewBox="0 0 120 120" role="img">
+                <path d="M16 48h88L60 20 16 48Z" />
+                <path d="M26 50h68v48H26z" />
+                <path d="M36 58h12v40H36zm24 0h12v40H60zm24 0h12v40H84z" />
+                <path d="M20 98h80v10H20z" />
+              </svg>
+            </div>
+            <h3>Escuela Normal</h3>
+            <p>
+              La institucion que organizo la formacion sistematica de maestras y
+              maestros para la escuela publica moderna.
+            </p>
+          </aside>
+        </div>
+        <div class="room-actions">
+          <a class="button button-secondary nav-room" href="#inicio" data-target="#inicio">
+            Sala anterior
+          </a>
+          <a class="button button-primary nav-room" href="#sala-2" data-target="#sala-2">
+            Sala siguiente
+          </a>
+        </div>
+      </section>
+
+      <!-- Sala 2: modelo docente normalista y profesionalizacion. -->
+      <section class="room museum-section reveal" id="sala-2" aria-labelledby="sala-2-title">
+        <div class="room-grid room-grid-reverse">
+          <article class="room-panel">
+            <p class="eyebrow">Sala 2</p>
+            <h2 id="sala-2-title">El modelo docente normalista</h2>
+            <p>
+              El normalismo construyo un modelo docente entendido como agente del
+              Estado y portador de una mision civilizadora. El docente debia ser
+              ejemplo moral, mantener neutralidad politica y contribuir a la formacion
+              de ciudadanos.
+            </p>
+            <p>
+              Tambien se produjo la feminizacion del magisterio y la
+              profesionalizacion de la ensenanza, dos rasgos que marcaron la
+              organizacion escolar argentina.
+            </p>
+            <div class="question-card">
+              <h3>Clave de lectura</h3>
+              <p>
+                El aula normalista no solo transmitia contenidos: tambien formaba
+                habitos, disciplina, lenguaje comun y pertenencia nacional.
+              </p>
+            </div>
+          </article>
+
+          <aside class="object-card" aria-label="Objeto destacado: Diploma de maestro normal">
+            <p class="object-label">Objeto destacado</p>
+            <div class="object-icon" aria-hidden="true">
+              <svg viewBox="0 0 120 120" role="img">
+                <path d="M26 18h54l14 14v70H26z" />
+                <path d="M80 18v18h14" />
+                <path d="M40 46h40M40 58h40M40 70h28" />
+                <circle cx="76" cy="84" r="10" />
+                <path d="M70 92 64 108l12-7 12 7-6-16" />
+              </svg>
+            </div>
+            <h3>Diploma de maestro normal</h3>
+            <p>
+              Certificaba una identidad profesional y ubicaba al docente dentro de un
+              proyecto estatal de escolarizacion.
+            </p>
+          </aside>
+        </div>
+        <div class="room-actions">
+          <a class="button button-secondary nav-room" href="#sala-1" data-target="#sala-1">
+            Sala anterior
+          </a>
+          <a class="button button-primary nav-room" href="#sala-3" data-target="#sala-3">
+            Sala siguiente
+          </a>
+        </div>
+      </section>
+
+      <!-- Sala 3: tensiones y conflictos del proyecto normalista. -->
+      <section class="room museum-section reveal" id="sala-3" aria-labelledby="sala-3-title">
+        <div class="room-grid">
+          <article class="room-panel">
+            <p class="eyebrow">Sala 3</p>
+            <h2 id="sala-3-title">Conflictos del normalismo</h2>
+            <p>
+              El proyecto normalista expandio la escolarizacion, pero tambien produjo
+              tensiones vinculadas con el control estatal, la disciplina y los limites
+              de la participacion democratica dentro de la escuela.
+            </p>
+
+            <div class="conflict-grid">
+              <div class="mini-card">
+                <h3>Aislamiento vs apertura</h3>
+                <p>La escuela se pensaba como espacio protegido, pero tambien debia dialogar con la sociedad.</p>
+              </div>
+              <div class="mini-card">
+                <h3>Obediencia vs democracia</h3>
+                <p>La disciplina escolar convivio con la promesa de formar ciudadanos autonomos.</p>
+              </div>
+              <div class="mini-card">
+                <h3>Malestar docente</h3>
+                <p>Hubo cuestionamientos a salarios, jerarquias, vigilancia y control estatal.</p>
+              </div>
+            </div>
+          </article>
+
+          <aside class="object-card" aria-label="Objeto destacado: Aula tradicional">
+            <p class="object-label">Objeto destacado</p>
+            <div class="object-icon" aria-hidden="true">
+              <svg viewBox="0 0 120 120" role="img">
+                <path d="M18 22h84v44H18z" />
+                <path d="M30 78h24v20H30zm36 0h24v20H66z" />
+                <path d="M22 66h76M42 98v10m36-10v10" />
+                <path d="M34 38h52M34 50h36" />
+              </svg>
+            </div>
+            <h3>Aula tradicional</h3>
+            <p>
+              Un espacio ordenado para ensenar, vigilar, clasificar y formar habitos
+              escolares considerados civilizadores.
+            </p>
+          </aside>
+        </div>
+        <div class="room-actions">
+          <a class="button button-secondary nav-room" href="#sala-2" data-target="#sala-2">
+            Sala anterior
+          </a>
+          <a class="button button-primary nav-room" href="#sala-4" data-target="#sala-4">
+            Sala siguiente
+          </a>
+        </div>
+      </section>
+
+      <!-- Sala 4: sujetos incorporados y sujetos marginados por el proyecto nacional. -->
+      <section class="room museum-section reveal" id="sala-4" aria-labelledby="sala-4-title">
+        <div class="room-grid room-grid-reverse">
+          <article class="room-panel">
+            <p class="eyebrow">Sala 4</p>
+            <h2 id="sala-4-title">Sujetos incluidos y marginados</h2>
+            <p>
+              La escuela normalista amplio derechos educativos, pero tambien funciono
+              como dispositivo de seleccion cultural. Incluyo a nuevos sujetos y, al
+              mismo tiempo, dejo otros en los margenes del relato nacional.
+            </p>
+
+            <div class="subjects-grid">
+              <div class="mini-card mini-card-light">
+                <h3>Incluidos</h3>
+                <ul>
+                  <li>Ninez escolarizada.</li>
+                  <li>Hijos de inmigrantes.</li>
+                  <li>Mujeres incorporadas al magisterio.</li>
+                </ul>
+              </div>
+              <div class="mini-card mini-card-dark">
+                <h3>Marginados</h3>
+                <ul>
+                  <li>Gauchos.</li>
+                  <li>Identidades culturales locales.</li>
+                  <li>Anarquistas, socialistas y comunistas considerados amenaza para el proyecto nacional.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <aside class="object-card" aria-label="Objeto destacado: Guardapolvo blanco">
+            <p class="object-label">Objeto destacado</p>
+            <div class="object-icon" aria-hidden="true">
+              <svg viewBox="0 0 120 120" role="img">
+                <path d="M46 18h28l8 16 20 8-12 64H30L18 42l20-8 8-16Z" />
+                <path d="M46 18 60 42l14-24M60 42v64" />
+                <path d="M38 66h12m20 0h12" />
+              </svg>
+            </div>
+            <h3>Guardapolvo blanco</h3>
+            <p>
+              Simbolo de igualdad escolar y, a la vez, de homogeneizacion de cuerpos,
+              identidades y diferencias sociales.
+            </p>
+          </aside>
+        </div>
+        <div class="room-actions">
+          <a class="button button-secondary nav-room" href="#sala-3" data-target="#sala-3">
+            Sala anterior
+          </a>
+          <a class="button button-primary nav-room" href="#sala-5" data-target="#sala-5">
+            Sala siguiente
+          </a>
+        </div>
+      </section>
+
+      <!-- Sala 5: permanencias del normalismo en la escuela actual. -->
+      <section class="room museum-section reveal" id="sala-5" aria-labelledby="sala-5-title">
+        <div class="room-grid">
+          <article class="room-panel">
+            <p class="eyebrow">Sala 5</p>
+            <h2 id="sala-5-title">El legado actual</h2>
+            <p>
+              El normalismo dejo marcas profundas en la organizacion de la escuela
+              argentina. Algunas practicas se transformaron, pero otras permanecen en
+              las rutinas, los rituales y la identidad docente.
+            </p>
+
+            <ul class="legacy-list">
+              <li>Planificacion y evaluacion.</li>
+              <li>Organizacion escolar.</li>
+              <li>Efemerides y simbolos patrioticos.</li>
+              <li>Escuela publica.</li>
+              <li>Predominio femenino en la docencia.</li>
+            </ul>
+          </article>
+
+          <aside class="object-card" aria-label="Objeto destacado: Acto escolar">
+            <p class="object-label">Objeto destacado</p>
+            <div class="object-icon" aria-hidden="true">
+              <svg viewBox="0 0 120 120" role="img">
+                <path d="M30 96h60v12H30z" />
+                <path d="M40 96V58h40v38" />
+                <path d="M32 58h56" />
+                <path d="M48 26v32" />
+                <path d="M48 28c14-8 20 8 34 0v26c-14 8-20-8-34 0z" />
+                <path d="M20 108h80" />
+              </svg>
+            </div>
+            <h3>Acto escolar</h3>
+            <p>
+              Ceremonia donde se combinan memoria historica, simbolos nacionales,
+              orden institucional y participacion comunitaria.
+            </p>
+          </aside>
+        </div>
+        <div class="room-actions">
+          <a class="button button-secondary nav-room" href="#sala-4" data-target="#sala-4">
+            Sala anterior
+          </a>
+          <a class="button button-primary nav-room" href="#conclusion" data-target="#conclusion">
+            Sala siguiente
+          </a>
+        </div>
+      </section>
+
+      <!-- Linea de tiempo para ubicar el proceso historico. -->
+      <section class="timeline-section museum-section reveal" id="linea-tiempo" aria-labelledby="timeline-title">
+        <div class="section-heading">
+          <p class="eyebrow">Linea de tiempo</p>
+          <h2 id="timeline-title">Hitos para ubicar el recorrido</h2>
+          <p>
+            Una sintesis visual de procesos que ayudan a comprender la formacion,
+            expansion y persistencia del normalismo argentino.
+          </p>
+        </div>
+
+        <div class="timeline" aria-label="Hitos historicos">
+          <article class="timeline-item">
+            <span>1870</span>
+            <h3>Escuela Normal de Parana</h3>
+            <p>Referencia central en la formacion de docentes para el sistema nacional.</p>
+          </article>
+          <article class="timeline-item">
+            <span>1881</span>
+            <h3>Malestar docente documentado</h3>
+            <p>Peticion de maestras de San Luis publicada en El Monitor de la Educacion Comun.</p>
+          </article>
+          <article class="timeline-item">
+            <span>1884</span>
+            <h3>Ley 1420</h3>
+            <p>La educacion comun, obligatoria y gratuita se vuelve eje del proyecto estatal.</p>
+          </article>
+          <article class="timeline-item">
+            <span>1910-1920</span>
+            <h3>Rituales escolares</h3>
+            <p>Se consolidan simbolos, efemerides y uniformes asociados a la escuela publica.</p>
+          </article>
+          <article class="timeline-item">
+            <span>Hoy</span>
+            <h3>Legados en debate</h3>
+            <p>Persisten formas de organizar, evaluar y narrar la identidad escolar.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Conclusion general del museo virtual. -->
+      <section class="conclusion museum-section reveal" id="conclusion" aria-labelledby="conclusion-title">
+        <div class="conclusion-content">
+          <p class="eyebrow">Conclusion</p>
+          <h2 id="conclusion-title">Un legado decisivo y ambivalente</h2>
+          <p>
+            El normalismo fue fundamental para la construccion del sistema educativo
+            argentino. Permitio expandir la escolarizacion y profesionalizar la
+            docencia, aunque tambien produjo mecanismos de exclusion y
+            homogeneizacion cultural. Su legado sigue presente en la escuela actual.
+          </p>
+          <a class="button button-primary nav-room" href="#inicio" data-target="#inicio">
+            Volver al inicio
+          </a>
+        </div>
+      </section>
+
+      <!-- Fuentes visuales de dominio publico utilizadas en el sitio. -->
+      <section class="sources museum-section reveal" aria-labelledby="sources-title">
+        <div class="section-heading">
+          <p class="eyebrow">Fuentes visuales</p>
+          <h2 id="sources-title">Imagenes de dominio publico</h2>
+          <p>
+            El museo usa fuentes visuales historicas de dominio publico y las acompana
+            con iconografia vectorial local para los objetos destacados.
+          </p>
+        </div>
+
+        <div class="source-grid">
+          <figure class="source-card">
+            <img
+              src="https://commons.wikimedia.org/wiki/Special:FilePath/El%20Monitor%20de%20la%20Educaci%C3%B3n%20Com%C3%BAn%20-%20Petici%C3%B3n%20Maestras%20San%20Luis%20de%201881.jpg?width=700"
+              alt="Peticion de maestras de San Luis de 1881 publicada en El Monitor de la Educacion Comun"
+              data-fallback="document"
+            />
+            <figcaption>
+              Peticion de maestras de San Luis, 1881. Fuente:
+              <a
+                href="https://commons.wikimedia.org/wiki/File:El_Monitor_de_la_Educaci%C3%B3n_Com%C3%BAn_-_Petici%C3%B3n_Maestras_San_Luis_de_1881.jpg"
+                target="_blank"
+                rel="noreferrer"
+                >Wikimedia Commons</a
+              >, dominio publico.
+            </figcaption>
+          </figure>
+
+          <article class="source-note">
+            <h3>Criterio de uso</h3>
+            <p>
+              Las imagenes externas enlazan a Commons para conservar sus metadatos y
+              referencias. Si se abre el sitio sin conexion, la estructura, los textos
+              y las ilustraciones SVG del museo siguen disponibles.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- Pie de pagina solicitado. -->
+    <footer class="site-footer">
+      <p>Trabajo universitario - Historia de la Educacion</p>
+      <p>Museo Virtual del Normalismo Argentino</p>
+    </footer>
+  </body>
+</html>
