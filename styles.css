@@ -776,6 +776,185 @@ p + p {
   font-size: 0.95rem;
 }
 
+/* Guia fija del recorrido y progreso del visitante. */
+.visit-guide {
+  position: fixed;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  z-index: 850;
+  display: grid;
+  gap: 0.75rem;
+  width: min(340px, calc(100vw - 2rem));
+  padding: 0.85rem;
+  border: 1px solid rgba(66, 38, 21, 0.18);
+  border-radius: 8px;
+  background: rgba(251, 247, 239, 0.96);
+  box-shadow: 0 14px 35px rgba(32, 22, 14, 0.18);
+  backdrop-filter: blur(14px);
+}
+
+.visit-status {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.visit-status span,
+.visit-status small {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+
+.visit-status strong {
+  color: var(--blue);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.05rem;
+  line-height: 1.2;
+}
+
+.quick-tour {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.35rem;
+}
+
+.quick-tour a {
+  display: grid;
+  place-items: center;
+  height: 34px;
+  border: 1px solid rgba(17, 47, 77, 0.18);
+  border-radius: 6px;
+  color: var(--blue);
+  font-weight: 850;
+  text-decoration: none;
+  background: var(--white);
+  transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.quick-tour a:hover {
+  transform: translateY(-2px);
+}
+
+.quick-tour a.is-active {
+  color: var(--white);
+  background: var(--blue);
+}
+
+.quick-tour a.is-visited:not(.is-active) {
+  border-color: rgba(181, 138, 69, 0.7);
+  background: #fff5dc;
+}
+
+.object-detail-button {
+  align-self: flex-start;
+  margin-top: 1.2rem;
+  padding: 0.62rem 0.85rem;
+  border: 1px solid rgba(233, 210, 160, 0.55);
+  border-radius: 6px;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  font-weight: 800;
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.object-detail-button:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.completion-panel {
+  max-width: 520px;
+  margin: 1.6rem auto 0;
+  padding: 1rem;
+  border: 1px solid rgba(17, 47, 77, 0.16);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.completion-panel span {
+  display: block;
+  color: var(--blue);
+  font-weight: 850;
+}
+
+.completion-track {
+  height: 10px;
+  margin-top: 0.75rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(17, 47, 77, 0.12);
+}
+
+.completion-track span {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--brass), #dfbd76);
+  transition: width 280ms ease;
+}
+
+.object-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(17, 24, 32, 0.62);
+}
+
+.object-modal-backdrop[hidden] {
+  display: none;
+}
+
+.object-modal {
+  position: relative;
+  width: min(620px, 100%);
+  max-height: min(720px, calc(100vh - 2rem));
+  overflow: auto;
+  padding: 2rem;
+  border: 1px solid rgba(181, 138, 69, 0.4);
+  border-radius: 8px;
+  background: var(--paper-soft);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+}
+
+.object-modal h2 {
+  padding-right: 5rem;
+}
+
+.object-modal p:not(.object-label) {
+  margin-top: 1rem;
+  color: #362b21;
+}
+
+.modal-note {
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted) !important;
+  font-size: 0.95rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  min-height: 38px;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid rgba(17, 47, 77, 0.18);
+  border-radius: 6px;
+  color: var(--blue);
+  background: var(--white);
+  cursor: pointer;
+  font-weight: 850;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
 /* Animaciones de aparicion controladas por JavaScript. */
 .js .reveal {
   opacity: 0;
@@ -820,6 +999,10 @@ p + p {
 
 /* Ajustes responsive para celulares. */
 @media (max-width: 760px) {
+  body {
+    padding-bottom: 112px;
+  }
+
   .site-header {
     min-height: 66px;
     padding-inline: 1rem;
@@ -921,6 +1104,55 @@ p + p {
 
   .button {
     width: 100%;
+  }
+
+  .visit-guide {
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    width: auto;
+    padding: 0.7rem;
+  }
+
+  .visit-status {
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 0.35rem;
+  }
+
+  .visit-status span {
+    display: none;
+  }
+
+  .visit-status strong {
+    min-width: 0;
+    overflow: hidden;
+    font-size: 0.98rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .visit-status small {
+    white-space: nowrap;
+  }
+
+  .quick-tour a {
+    height: 32px;
+  }
+
+  .object-modal {
+    padding: 1.35rem;
+  }
+
+  .object-modal h2 {
+    padding-right: 0;
+    font-size: 1.65rem;
+  }
+
+  .modal-close {
+    position: static;
+    width: 100%;
+    margin-bottom: 1rem;
   }
 }
 

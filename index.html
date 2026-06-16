@@ -46,6 +46,24 @@
       </nav>
     </header>
 
+    <!-- Guía de visita persistente para orientar el recorrido en computadora y celular. -->
+    <aside class="visit-guide" aria-label="Guía de visita del museo">
+      <div class="visit-status">
+        <span>Recorrido</span>
+        <strong data-current-room>Inicio</strong>
+        <small data-visited-count>0 de 5 salas visitadas</small>
+      </div>
+      <nav class="quick-tour" aria-label="Mapa rápido del recorrido">
+        <a href="#inicio" data-tour-dot="inicio" aria-label="Ir al inicio">I</a>
+        <a href="#sala-1" data-tour-dot="sala-1" aria-label="Ir a sala 1">1</a>
+        <a href="#sala-2" data-tour-dot="sala-2" aria-label="Ir a sala 2">2</a>
+        <a href="#sala-3" data-tour-dot="sala-3" aria-label="Ir a sala 3">3</a>
+        <a href="#sala-4" data-tour-dot="sala-4" aria-label="Ir a sala 4">4</a>
+        <a href="#sala-5" data-tour-dot="sala-5" aria-label="Ir a sala 5">5</a>
+        <a href="#conclusion" data-tour-dot="conclusion" aria-label="Ir a conclusión">C</a>
+      </nav>
+    </aside>
+
     <main id="contenido">
       <!-- Inicio del recorrido: bienvenida, explicacion e imagen principal. -->
       <section class="hero museum-section" id="inicio" aria-labelledby="hero-title">
@@ -58,7 +76,7 @@
           </p>
           <div class="hero-actions" aria-label="Acciones del recorrido">
             <a class="button button-primary" href="#sala-1">Comenzar recorrido</a>
-            <a class="button button-secondary" href="#linea-tiempo">Ver línea de tiempo</a>
+            <a class="button button-secondary" href="#linea-tiempo">Ver linea de tiempo</a>
           </div>
         </div>
 
@@ -71,7 +89,7 @@
         </div>
 
         <p class="hero-source">
-          Imagen: Domingo F. Sarmiento, Ignacio Baz, dominio público -
+          Imagen: Domingo F. Sarmiento, Ignacio Baz, dominio publico -
           <a
             href="https://commons.wikimedia.org/wiki/File:Ignacio_Baz_-_Domingo_F._Sarmiento_-_Google_Art_Project.jpg"
             target="_blank"
@@ -81,14 +99,14 @@
         </p>
       </section>
 
-      <!-- Presentación del recorrido como mapa de salas. -->
+      <!-- Presentacion del recorrido como mapa de salas. -->
       <section class="intro museum-section reveal" aria-labelledby="recorrido-title">
         <div class="section-heading">
           <p class="eyebrow">Recorrido sugerido</p>
-          <h2 id="recorrido-title">Cinco salas para leer el normalismo como proyecto histórico</h2>
+          <h2 id="recorrido-title">Cinco salas para leer el normalismo como proyecto historico</h2>
           <p>
             Cada sala funciona como una vitrina temática: presenta un problema, un
-            objeto destacado y una pregunta para interpretar el período.
+            objeto destacado y una pregunta para interpretar el periodo.
           </p>
         </div>
 
@@ -116,12 +134,12 @@
           <article class="overview-card">
             <span>05</span>
             <h3>Legado</h3>
-            <p>Prácticas escolares que siguen presentes en la actualidad.</p>
+            <p>Practicas escolares que siguen presentes en la actualidad.</p>
           </article>
         </div>
       </section>
 
-      <!-- Sala 1: problemas históricos que buscó resolver el normalismo. -->
+      <!-- Sala 1: problemas historicos que busco resolver el normalismo. -->
       <section class="room museum-section reveal" id="sala-1" aria-labelledby="sala-1-title">
         <div class="room-grid">
           <article class="room-panel">
@@ -157,6 +175,9 @@
               La institución que organizó la formación sistemática de maestras y
               maestros para la escuela pública moderna.
             </p>
+            <button class="object-detail-button" type="button" data-object="escuela-normal">
+              Ver cédula
+            </button>
           </aside>
         </div>
         <div class="room-actions">
@@ -211,6 +232,9 @@
               Certificaba una identidad profesional y ubicaba al docente dentro de un
               proyecto estatal de escolarización.
             </p>
+            <button class="object-detail-button" type="button" data-object="diploma">
+              Ver cédula
+            </button>
           </aside>
         </div>
         <div class="room-actions">
@@ -231,7 +255,7 @@
             <h2 id="sala-3-title">Conflictos del normalismo</h2>
             <p>
               El proyecto normalista expandió la escolarización, pero también produjo
-              tensiones vinculadas con el control estatal, la disciplina y los límites
+              tensiones vinculadas con el control estatal, la disciplina y los limites
               de la participación democrática dentro de la escuela.
             </p>
 
@@ -266,6 +290,9 @@
               Un espacio ordenado para enseñar, vigilar, clasificar y formar hábitos
               escolares considerados civilizadores.
             </p>
+            <button class="object-detail-button" type="button" data-object="aula">
+              Ver cédula
+            </button>
           </aside>
         </div>
         <div class="room-actions">
@@ -324,6 +351,9 @@
               Símbolo de igualdad escolar y, a la vez, de homogeneización de cuerpos,
               identidades y diferencias sociales.
             </p>
+            <button class="object-detail-button" type="button" data-object="guardapolvo">
+              Ver cédula
+            </button>
           </aside>
         </div>
         <div class="room-actions">
@@ -344,7 +374,7 @@
             <h2 id="sala-5-title">El legado actual</h2>
             <p>
               El normalismo dejó marcas profundas en la organización de la escuela
-              argentina. Algunas prácticas se transformaron, pero otras permanecen en
+              argentina. Algunas practicas se transformaron, pero otras permanecen en
               las rutinas, los rituales y la identidad docente.
             </p>
 
@@ -374,6 +404,9 @@
               Ceremonia donde se combinan memoria histórica, símbolos nacionales,
               orden institucional y participación comunitaria.
             </p>
+            <button class="object-detail-button" type="button" data-object="acto">
+              Ver cédula
+            </button>
           </aside>
         </div>
         <div class="room-actions">
@@ -386,18 +419,18 @@
         </div>
       </section>
 
-      <!-- Línea de tiempo para ubicar el proceso histórico. -->
+      <!-- Linea de tiempo para ubicar el proceso historico. -->
       <section class="timeline-section museum-section reveal" id="linea-tiempo" aria-labelledby="timeline-title">
         <div class="section-heading">
           <p class="eyebrow">Línea de tiempo</p>
           <h2 id="timeline-title">Hitos para ubicar el recorrido</h2>
           <p>
             Una síntesis visual de procesos que ayudan a comprender la formación,
-            expansión y persistencia del normalismo argentino.
+            expansion y persistencia del normalismo argentino.
           </p>
         </div>
 
-        <div class="timeline" aria-label="Hitos históricos">
+        <div class="timeline" aria-label="Hitos historicos">
           <article class="timeline-item">
             <span>1870</span>
             <h3>Escuela Normal de Paraná</h3>
@@ -440,10 +473,16 @@
           <a class="button button-primary nav-room" href="#inicio" data-target="#inicio">
             Volver al inicio
           </a>
+          <div class="completion-panel" aria-live="polite">
+            <span data-completion-count>0 de 5 salas visitadas</span>
+            <div class="completion-track" aria-hidden="true">
+              <span data-completion-bar></span>
+            </div>
+          </div>
         </div>
       </section>
 
-      <!-- Fuentes visuales de dominio público utilizadas en el sitio. -->
+      <!-- Fuentes visuales de dominio publico utilizadas en el sitio. -->
       <section class="sources museum-section reveal" aria-labelledby="sources-title">
         <div class="section-heading">
           <p class="eyebrow">Fuentes visuales</p>
@@ -468,7 +507,7 @@
                 target="_blank"
                 rel="noreferrer"
                 >Wikimedia Commons</a
-              >, dominio público.
+              >, dominio publico.
             </figcaption>
           </figure>
 
@@ -476,7 +515,7 @@
             <h3>Criterio de uso</h3>
             <p>
               Las imágenes externas enlazan a Commons para conservar sus metadatos y
-              referencias. Si se abre el sitio sin conexión, la estructura, los textos
+              referencias. Si se abre el sitio sin conexion, la estructura, los textos
               y las ilustraciones SVG del museo siguen disponibles.
             </p>
           </article>
@@ -484,7 +523,24 @@
       </section>
     </main>
 
-    <!-- Pie de página solicitado. -->
+    <!-- Cédulas ampliadas de objetos destacados. -->
+    <div class="object-modal-backdrop" hidden data-object-modal>
+      <section
+        class="object-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="object-modal-title"
+        tabindex="-1"
+      >
+        <button class="modal-close" type="button" data-modal-close>Cerrar</button>
+        <p class="object-label">Cédula de objeto</p>
+        <h2 id="object-modal-title" data-modal-title></h2>
+        <p data-modal-body></p>
+        <p class="modal-note" data-modal-note></p>
+      </section>
+    </div>
+
+    <!-- Pie de pagina solicitado. -->
     <footer class="site-footer">
       <p>Trabajo universitario - Historia de la Educación</p>
       <p>Museo Virtual del Normalismo Argentino</p>
