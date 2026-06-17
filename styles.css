@@ -16,7 +16,7 @@
   --hero-image: url("https://commons.wikimedia.org/wiki/Special:FilePath/Ignacio%20Baz%20-%20Domingo%20F.%20Sarmiento%20-%20Google%20Art%20Project.jpg?width=1400");
 }
 
-/* Reset basico para que el sitio funcione igual en navegadores modernos. */
+/* Reset básico para que el sitio funcione igual en navegadores modernos. */
 * {
   box-sizing: border-box;
 }
@@ -53,7 +53,7 @@ textarea {
   font: inherit;
 }
 
-/* Accesibilidad para navegacion por teclado. */
+/* Accesibilidad para navegación por teclado. */
 :focus-visible {
   outline: 3px solid var(--brass);
   outline-offset: 4px;
@@ -87,7 +87,7 @@ textarea {
   background: linear-gradient(90deg, var(--brass), #e5c175);
 }
 
-/* Encabezado fijo con navegacion superior. */
+/* Encabezado fijo con navegación superior. */
 .site-header {
   position: sticky;
   top: 0;
@@ -245,7 +245,7 @@ p + p {
   margin-top: 1rem;
 }
 
-/* Portada con imagen historica de dominio publico. */
+/* Portada con imagen histórica de dominio público. */
 .hero {
   position: relative;
   display: flex;
@@ -285,6 +285,19 @@ p + p {
   margin-top: 1.25rem;
   color: rgba(255, 255, 255, 0.88);
   font-size: 1.15rem;
+}
+
+.hero-credit {
+  display: inline-block;
+  max-width: 760px;
+  margin-top: 1rem;
+  padding: 0.58rem 0.78rem;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 0.95rem;
+  font-weight: 700;
 }
 
 .hero-actions {
@@ -611,7 +624,7 @@ p + p {
   color: #362b21;
 }
 
-/* Linea de tiempo historica. */
+/* Línea de tiempo histórica. */
 .timeline-section {
   background: var(--blue);
   color: var(--white);
@@ -710,7 +723,31 @@ p + p {
   margin-top: 1.8rem;
 }
 
-/* Creditos de imagenes de dominio publico. */
+.project-credit {
+  max-width: 680px;
+  margin: 1.5rem auto 0;
+  padding: 1rem;
+  border: 1px solid rgba(181, 138, 69, 0.34);
+  border-radius: 8px;
+  background: #fffaf1;
+}
+
+.project-credit span {
+  display: block;
+  color: var(--brown);
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.project-credit p {
+  margin-top: 0.35rem !important;
+  color: var(--blue) !important;
+  font-weight: 800;
+}
+
+/* Créditos de imágenes de dominio público. */
 .sources {
   background: #efe3d1;
 }
@@ -761,7 +798,7 @@ p + p {
   color: var(--muted);
 }
 
-/* Pie de pagina. */
+/* Pie de página. */
 .site-footer {
   display: flex;
   flex-wrap: wrap;
@@ -776,7 +813,11 @@ p + p {
   font-size: 0.95rem;
 }
 
-/* Guia fija del recorrido y progreso del visitante. */
+.footer-credit {
+  font-weight: 800;
+}
+
+/* Guía fija del recorrido y progreso del visitante. */
 .visit-guide {
   position: fixed;
   right: 1.2rem;
@@ -955,7 +996,7 @@ body.modal-open {
   overflow: hidden;
 }
 
-/* Animaciones de aparicion controladas por JavaScript. */
+/* Animaciones de aparición controladas por JavaScript. */
 .js .reveal {
   opacity: 0;
   transform: translateY(26px);
@@ -1065,6 +1106,11 @@ body.modal-open {
     font-size: 1rem;
   }
 
+  .hero-credit {
+    display: block;
+    font-size: 0.9rem;
+  }
+
   .hero-route {
     position: static;
     margin-top: 2rem;
@@ -1087,6 +1133,10 @@ body.modal-open {
   .room-panel,
   .conclusion-content {
     padding: 1.35rem;
+  }
+
+  .project-credit {
+    padding: 0.85rem;
   }
 
   .object-card {

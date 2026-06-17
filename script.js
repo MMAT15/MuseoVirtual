@@ -1,4 +1,4 @@
-// Activa estilos progresivos solo cuando JavaScript esta disponible.
+// Activa estilos progresivos solo cuando JavaScript está disponible.
 document.documentElement.classList.add("js");
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Actualiza la guia fija y el progreso de salas visitadas.
+  // Actualiza la guía fija y el progreso de salas visitadas.
   const updateVisitState = (sectionId) => {
     if (currentRoom && roomNames[sectionId]) {
       currentRoom.textContent = roomNames[sectionId];
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  // Animacion de aparicion al hacer scroll.
+  // Animación de aparición al hacer scroll.
   if ("IntersectionObserver" in window) {
     const revealObserver = new IntersectionObserver(
       (entries) => {
@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Reemplazo local para imagenes externas si no se pueden cargar.
+  // Reemplazo local para imágenes externas si no se pueden cargar.
   const fallbackSvgs = {
     document: `
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 520">
@@ -212,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <path d="M230 140h240M230 188h240M230 236h210M230 284h240M230 332h190" stroke="#112f4d" stroke-width="14" stroke-linecap="round"/>
         <circle cx="455" cy="390" r="34" fill="none" stroke="#b58a45" stroke-width="10"/>
         <path d="M430 420l-20 54 45-25 45 25-20-54" fill="#b58a45"/>
-        <text x="350" y="105" text-anchor="middle" fill="#422615" font-family="Georgia, serif" font-size="32">Documento historico</text>
+        <text x="350" y="105" text-anchor="middle" fill="#422615" font-family="Georgia, serif" font-size="32">Documento histórico</text>
       </svg>
     `,
   };
